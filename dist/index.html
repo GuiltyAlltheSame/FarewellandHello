@@ -1,0 +1,1256 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#e8dfcf" />
+    <meta name="description" content="«Прощай и здравствуй» — цифровой фотоальбом по книге Игоря Гусева." />
+    <title>Прощай и здравствуй</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#start-reading">Перейти к содержанию</a>
+    <div class="page-shell">
+      <header class="site-header" aria-label="Основная навигация">
+        <a class="wordmark" href="#intro" aria-label="Прощай и здравствуй — начало"><span>ПРОЩАЙ</span> <span>и</span> <span>ЗДРАВСТВУЙ</span></a>
+        <div class="site-header__actions">
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Включить тёмную тему" title="Включить тёмную тему" aria-pressed="false">
+            <svg class="lamp-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <defs>
+                <mask id="lamp-highlight-cut" maskUnits="userSpaceOnUse" x="0" y="0" width="32" height="32" style="mask-type: luminance">
+                  <rect width="32" height="32" fill="white" stroke="none" />
+                  <path d="M14.6 10c-2 .6-3 2.3-3 4.3" stroke="black" />
+                </mask>
+              </defs>
+              <g class="lamp-icon__rays">
+                <path d="M16 2v3M9.5 3.9 11 6.5M4.7 8.7l2.6 1.5M3 14h3M4.7 19.3l2.6-1.5M22.5 3.9 21 6.5M27.3 8.7l-2.6 1.5M29 14h-3M27.3 19.3l-2.6-1.5" />
+              </g>
+              <path class="lamp-icon__bulb" d="M16 7.5c-3.6 0-6.5 2.8-6.5 6.4 0 2.6 1.5 4.1 2.9 6  .8 1.1 1 2.2 1.1 3.7h5c.1-1.5.3-2.6 1.1-3.7 1.4-1.9 2.9-3.4 2.9-6 0-3.6-2.9-6.4-6.5-6.4Z" fill="currentColor" mask="url(#lamp-highlight-cut)" />
+              <path class="lamp-icon__highlight" d="M14.6 10c-2 .6-3 2.3-3 4.3" />
+              <path d="M13.4 25.5h5.2M13.8 27.5h4.4M14.8 29h2.4" />
+            </svg>
+          </button>
+          <div class="site-header__page-actions">
+            <button class="about-toggle" id="about-toggle" type="button" aria-label="О проекте" title="О проекте" aria-expanded="false" aria-controls="about-panel">
+              <svg class="about-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true" focusable="false">
+                <defs>
+                  <mask id="about-icon-cut" maskUnits="userSpaceOnUse" x="0" y="0" width="32" height="32" style="mask-type: luminance">
+                    <rect width="32" height="32" fill="white" stroke="none" />
+                    <text x="16" y="16.5" text-anchor="middle" dominant-baseline="central" fill="black" font-family="'PT Serif', Georgia, 'Times New Roman', serif" font-size="20" font-style="italic" font-weight="700">i</text>
+                  </mask>
+                </defs>
+                <circle class="about-icon__fill" cx="16" cy="16" r="12" fill="currentColor" mask="url(#about-icon-cut)" />
+                <g class="about-icon__details" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="16" cy="16" r="12" stroke-width="1.8" />
+                  <text x="16" y="16.5" text-anchor="middle" dominant-baseline="central" fill="currentColor" stroke="none" font-family="'PT Serif', Georgia, 'Times New Roman', serif" font-size="20" font-style="italic" font-weight="700">i</text>
+                </g>
+              </svg>
+            </button>
+          <button class="book-toggle" id="menu-toggle" type="button" aria-label="Страницы альбома" title="Страницы альбома" aria-expanded="false" aria-controls="chapter-menu">
+            <svg class="book-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <defs>
+                <mask id="book-page-cuts" maskUnits="userSpaceOnUse" x="0" y="0" width="32" height="32" style="mask-type: luminance">
+                  <rect width="32" height="32" fill="white" stroke="none" />
+                  <path d="M16 9V26 M8 11.5C10 11.7 11.5 12.3 13 13 M8 16C10 16.2 11.5 16.8 13 17.5 M19 13C20.5 12.3 22 11.7 24 11.5 M19 17.5C20.5 16.8 22 16.2 24 16" stroke="black" />
+                </mask>
+              </defs>
+              <path class="book-icon__fill" d="M16 9C12.6 6.5 8.6 5.4 4 5.5V23C8.5 22.8 12.5 24 16 26C19.5 24 23.5 22.8 28 23V5.5C23.4 5.4 19.4 6.5 16 9Z" fill="currentColor" stroke="none" mask="url(#book-page-cuts)" />
+              <path d="M4 9H1.5V26H12.5Q16 29 19.5 26H30.5V9H28 M16 9C12.6 6.5 8.6 5.4 4 5.5V23C8.5 22.8 12.5 24 16 26C19.5 24 23.5 22.8 28 23V5.5C23.4 5.4 19.4 6.5 16 9Z" />
+              <path class="book-icon__details" d="M16 9V26 M8 11.5C10 11.7 11.5 12.3 13 13 M8 16C10 16.2 11.5 16.8 13 17.5 M19 13C20.5 12.3 22 11.7 24 11.5 M19 17.5C20.5 16.8 22 16.2 24 16" />
+            </svg>
+          </button>
+          </div>
+        </div>
+      </header>
+
+      <nav class="chapter-menu" id="chapter-menu" aria-label="Страницы альбома" hidden></nav>
+      <aside class="about-panel" id="about-panel" aria-labelledby="about-panel-title" hidden>
+        <h2 id="about-panel-title">О проекте</h2>
+        <p>За основу взяты сканы книги Игоря Семеновича Гусева "Прощай и Здравствуй" издательства "Дальпресс". Сохранены оригинальные заметки автора и статьи издания. Добавленая историческая справка. Ничего не вырезано и не редактированно.</p>
+      </aside>
+
+      <main>
+        <section class="intro" id="intro" aria-labelledby="project-title">
+          <div class="intro__photograph" aria-hidden="true">
+            <img class="intro__slide is-active" src="./assets/photos/p0934_photo_01.webp" alt="" fetchpriority="high" />
+            <img class="intro__slide" alt="" />
+          </div>
+          <div class="intro__content">
+            <p class="eyebrow">Цифровой фотоальбом <span class="intro__edition"><span id="intro-page-count">105</span> страниц</span></p>
+            <h1 id="project-title"><span>Прощай</span> <span class="intro__title-ending"><span class="intro__conjunction">и</span> здравствуй</span></h1>
+            <div class="intro__footer">
+              <div class="intro__description">
+                <p class="intro__subtitle">По книге Игоря Гусева</p>
+                <p class="intro__text" id="project-intro"></p>
+              </div>
+              <button class="start-button" id="start-reading" type="button">Смотреть <span aria-hidden="true">↗</span></button>
+            </div>
+          </div>
+        </section>
+
+        <section class="chapter-view" id="chapter-view" hidden></section>
+      </main>
+    </div>
+
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр фотографии" hidden>
+      <div class="lightbox__backdrop" data-close-lightbox></div>
+      <div class="lightbox__dialog" role="document">
+        <button class="icon-button lightbox__close" type="button" data-close-lightbox aria-label="Закрыть просмотр">×</button>
+        <button class="lightbox__arrow lightbox__arrow--previous" type="button" data-lightbox-previous aria-label="Предыдущая фотография">←</button>
+        <figure class="lightbox__figure">
+          <img id="lightbox-image" alt="" />
+          <figcaption id="lightbox-caption"></figcaption>
+        </figure>
+        <button class="lightbox__arrow lightbox__arrow--next" type="button" data-lightbox-next aria-label="Следующая фотография">→</button>
+      </div>
+    </div>
+
+    <template id="page_0929-text">
+      <div hidden>
+        <span data-photo-id="p0929-01" data-photo-title="Отличник боевой и политической подготовки Николай Дьяков" data-photo-place="" data-photo-year="1961"></span>
+        <span data-photo-id="p0929-02" data-photo-title="Разговор с ветераном. Приморский фотомастер Юрий Луганский" data-photo-place="" data-photo-year="9 мая 2002 года"></span>
+        <span data-photo-id="p0929-03" data-photo-title="41-й в памяти на века. Владивосток" data-photo-place="" data-photo-year="2000"></span>
+        <span data-photo-id="p0929-04" data-photo-title="На Славянском СРЗ" data-photo-place="" data-photo-year=""></span>
+        <span data-photo-id="p0929-05" data-photo-title="Тележурналист Анатолий Ющенко. Он словно магнитом притягивал к себе самые невероятные стечения обстоятельств" data-photo-place="" data-photo-year="1995"></span>
+        <span data-photo-id="p0929-06" data-photo-title="Новоспасский цементный завод: вид сверху" data-photo-place="" data-photo-year="1979"></span>
+      </div>
+      <p class="author-message">Внукам своим: Дмитрию Радченко, Виктории, Денису, Светлане, Александру, Владимиру, Елене, Эльвире и Наташе Гусевым посвящаю.</p>
+      <p class="author-signature">Автор</p>
+      <h2 class="publisher-title" data-menu-title="От издательства">От издательства "Дальпресс"</h2>
+      <p class="article-paragraph article-paragraph--dropcap">Без прошлого нет настоящего - гласит народная мудрость. Издательство ”Дальпресс” с удовольствием представляет дальневосточному читателю творческую работу приморского фотохудожника Игоря Гусева. Под ее обложкой более сотни иллюстраций. В основном, черно-белых. Этот контраст - дух и символ эпохи 50-80-х, своеобразный этап переходного возраста России.</p>
+      <p class="article-paragraph">Книга Игоря Гусева - о целом поколении людей, которое училось, взрослело, любило и набивало шишки вместе со своей страной. Тогда и фотографию ценили по-особому, а за Лучшим кадром охотились не один день. "Трое суток шагать...” - это про таких людей как Гусев. Его имя хорошо знакомо не только истинным профессионалам пера и снимка, но и тем, кто в разные годы соприкасался с его творчеством.</p>
+      <p class="article-paragraph">На ум невольно приходит одно слово - ностальгия. По детству, по родной околице, малой родине... - именно эти чувства будит в душе фотокнига нашего земляка.</p>
+      <p class="article-paragraph">Пользуясь случаем, мы не можем не заметить, что в летописи приморской фотожурналистики немало ярких имен. Издательство ”Дальпресс” будет радо осуществить подобного рода проекты и с другими авторами. Польза от этого несомненна: и для тех, кто снимает, и для тех, кто по-настоящему умеет ценить искусство фотографии.</p>
+    </template>
+
+    <template id="page_0930-text">
+      <div hidden>
+        <span data-photo-id="p0930-01" data-photo-title="Создатели песни «Уходит сейнер»: композитор Николай Губин" data-photo-place="" data-photo-year="1980"></span>
+        <span data-photo-id="p0930-02" data-photo-title="Создатели песни «Уходит сейнер»: поэт Владимир Коврижкин" data-photo-place="" data-photo-year="1980"></span>
+        <span data-photo-id="p0930-03" data-photo-title="Разговор о боевом братстве: контр-адмирал А. А. Белоусов и ветеран войны Ф. Г. Суханов. ДВГУ" data-photo-place="" data-photo-year="2003"></span>
+        <span data-photo-id="p0930-04" data-photo-title="Мой первый редактор «районки» Ирина Сергеевна Корнева. Находка" data-photo-place="" data-photo-year="1964"></span>
+        <span data-photo-id="p0930-05" data-photo-title="Порт Восточный: трудовые будни" data-photo-place="" data-photo-year="1978"></span>
+        <span data-photo-id="p0930-06" data-photo-title="Маэстро приморской тележурналистики 60-х Петр Якимов" data-photo-place="" data-photo-year="1978"></span>
+        <span data-photo-id="p0930-07" data-photo-title="Релаксация в сельской глубинке. Приморские журналисты Дмитрий Латыпов и Владимир Барабаш (газета «Труд»)" data-photo-place="" data-photo-year="1997"></span>
+      </div>
+      <h2 class="publisher-title">В каждом кадре - жизнь</h2>
+      <p class="article-paragraph article-paragraph--dropcap">Фотография тем и ценна, что дает почувствовать вкус и формат времени, такого неуловимого и быстротечного. Еще вчера свежий кадр был реальностью, а сегодня он - история.</p>
+      <p class="article-paragraph">Фотоальбом Игоря Гусева напоминает пеструю мозаику ярких сюжетов из жизни, в которые вплелись и его собственная судьба, и судьбы его героев.</p>
+      <p class="article-paragraph">Листая книгу, невольно испытываешь трепетное ощущение сопричастности к делам давно минувших дней. Будто окунулся в синеву беззаботного детства, поговорил с мамой, прошелся по родной улице, поймал подбадривающие улыбки друзей. Эти чувства неизбывны и вечны. Ведь жизнь - она как хлеб: не приедается. Пройдет череда лет и все опять повторится сначала.</p>
+      <p class="article-paragraph">Игорь Гусев хорошо знает свое дело, до тонкости разбирается в нюансах профессии. Но его опыт не только умение ”поймать” кадр, найти нужную точку съемки. Это еще и стремление к поиску, к совершенству, к гармонии - и в профессии, и в жизни. Наверное, симбиоз этих качеств и давал повод подлинным ценителям фотографии в еще не столь далекие времена ”Красного знамени" (одной из лучших газет страны) употреблять по отношении к Гусеву слово Мастер. И это говорит о многом.</p>
+      <p class="article-paragraph">А еще он лирик и романтик, человек подкупающей искренности и доброты. C ним всегда надежно и интересно. То, что вы держите в руках хорошую книгу замечательного мастера, - приятный и закономерный этап его творческого пути.</p>
+      <p class="article-paragraph">C этим его и поздравим.</p>
+      <p class="author-message author-message--closing"><strong>Ольга Мальцева</strong>, секретарь Союза журналистов России, координатор по ДФО</p>
+    </template>
+
+    <template id="page_0931-text">
+      <h2 class="publisher-title">Павлик - сын моего хорошего приятеля</h2>
+      <p class="article-paragraph">Прежде чем нажать на спуск затвора, я спросил мальчишку: ”Павлик, ты знаешь, чей хлеб ешь? Ответ последовал мгновенно: ”Батькин... и свой. Он книгу писал, а я по дому управлялся”.</p>
+    </template>
+
+    <template id="page_0932-text">
+      <h2 class="publisher-title">Караси из Стародубска</h2>
+      <p class="article-paragraph article-paragraph--dropcap">Чем чаще обращаешься мыслями к пережитому, тем роднее и явственнее ”зазубринки” давно минувших дней. Поводом для воспоминаний может стать хранимая с незапамятных времен вещица или пожелтевший от времени снимок. Вот и я не так давно основательно перебрал <strong>полувековой давности архив</strong>.</p>
+      <p class="article-paragraph article-paragraph--separated">В том, что альбом открывается именно этим снимком, есть своя логика: все мы родом из детства. В хрупких пацанячьих фигурках - до боли знакомые приметы времени: деревенское босоножье, ”домашняя“ стрижка под полубокс, папкина фронтовая пилотка на голове... На обороте фотографии надпись: <strong>”Караси из Стародубска”</strong> , Вы не видите никаких карасей? И не мудрено, Просто фамилия у этих сорванцов такая - Карась.</p>
+    </template>
+
+    <template id="page_0934-text">
+      <h2 class="publisher-title">За форелью на Падун</h2>
+    </template>
+
+    <template id="page_0935-text">
+      <h2 class="publisher-title">С вертолетом в догонялки</h2>
+    </template>
+
+    <template id="page_0936-text">
+      <h2 class="publisher-title">Подпасок</h2>
+    </template>
+
+    <template id="page_0937-text">
+      <h2 class="publisher-title">Все начиналось с неуменья</h2>
+      <p class="article-paragraph">Учительница начальных классов Мария Николаевна Павленко.</p>
+    </template>
+
+    <template id="page_0938-text">
+      <h2 class="publisher-title">Городские школяры</h2>
+    </template>
+
+    <template id="page_0939-text">
+      <h2 class="publisher-title">Триумф и огорчение</h2>
+    </template>
+
+    <template id="page_0940-text">
+      <h2 class="publisher-title">Рыжик из Золотой Долины</h2>
+      <p class="article-paragraph article-paragraph--indent">Во время подготовки репортажа с уборочной предложил сфотографироваться школьнику - подсобному рабочему. ”А я рыжий. Таких в газетах не печатают”, - пошутил он. - А я не сразу опубликую. Лет через 40-50, когда полиняешь. Идет?" - "Если через пятьдесят - валяй. Ждать - не догонять”. <strong>Я нажал на кнопку ”Зенита”...</strong></p>
+    </template>
+
+    <template id="page_0941-text">
+      <h2 class="publisher-title">У околицы родного села</h2>
+    </template>
+
+    <template id="page_0942-text">
+      <h2 class="publisher-title">Постижение пространства</h2>
+    </template>
+
+    <template id="page_0943-text">
+      <h2 class="publisher-title">Настрой на минор</h2>
+    </template>
+
+    <template id="page_0945-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0945-01" data-photo-title="Комсомолочки" data-photo-place="Сахалин, г. Долинск" data-photo-year="1961"></span>
+      </div>
+      <h2 class="publisher-title">Комсомолочки</h2>
+    </template>
+
+    <template id="page_0946-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0946-01" data-photo-title="А рассвет уже все заметнее..." data-photo-place="Владивосток" data-photo-year="1978"></span>
+      </div>
+      <h2 class="publisher-title">А рассвет уже все заметнее...</h2>
+    </template>
+
+    <template id="page_0947-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0947-01" data-photo-title="Под парусом" data-photo-place="Владивосток" data-photo-year="1990"></span>
+      </div>
+      <h2 class="publisher-title">Под парусом</h2>
+      <p class="article-paragraph article-paragraph--dropcap">Нам, послевоенному поколению, так хотелось побыстрее вырасти, чтобы устроиться на работу, помогать родителям, поскорее преодолеть бедность и разруху. Но мама успокаивала: ” Всему свое время. Москва не сразу строилась...”.</p>
+      <p class="article-paragraph article-paragraph--no-indent">И все-таки в те годы мы взрослели и мужали быстрее.</p>
+    </template>
+
+    <template id="page_0949-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0949-01" data-photo-title="Мой друг Николай Дьяков" data-photo-place="Южно-Сахалинск, Долинск" data-photo-year="1961"></span>
+      </div>
+      <h2 class="publisher-title">Мой друг Николай Дьяков</h2>
+    </template>
+
+    <template id="page_0951-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0951-01" data-photo-title="В ожидании утреннего бриза" data-photo-place="Владивосток" data-photo-year="1981"></span>
+      </div>
+      <h2 class="publisher-title">В ожидании утреннего бриза</h2>
+    </template>
+
+    <template id="page_0952-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0952-01" data-photo-title="После шторма" data-photo-place="Приморье, залив Рында, бухта Джигит" data-photo-year="1968"></span>
+      </div>
+      <h2 class="publisher-title">После шторма</h2>
+    </template>
+
+    <template id="page_0953-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0953-01" data-photo-title="Вызволение «Гренады»" data-photo-place="Владивосток, залив Рында, бухта Джигит" data-photo-year="1968"></span>
+      </div>
+      <h2 class="publisher-title">Вызволение «Гренады»</h2>
+    </template>
+
+    <template id="page_0954-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0954-01" data-photo-title="Заменили... Во время футбольного матча на стадионе «Водник»" data-photo-place="Находка" data-photo-year="1972"></span>
+      </div>
+      <h2 class="publisher-title">Заменили...</h2>
+      <p class="article-paragraph">Во время фу больного матча на стадионе ”Водник”.</p>
+    </template>
+
+    <template id="page_0955-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0955-01" data-photo-title="Рабочая косточка" data-photo-place="Находка" data-photo-year="1975"></span>
+      </div>
+      <h2 class="publisher-title">Рабочая косточка</h2>
+      <p class="article-paragraph">Сварщик НСРЗ Валерий Воловик.</p>
+    </template>
+
+    <template id="page_0956-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0956-01" data-photo-title="Время свадеб и гроз..." data-photo-place="Находка — Екатериновка" data-photo-year="1968"></span>
+      </div>
+      <h2 class="publisher-title">Время свадеб и гроз...</h2>
+    </template>
+
+    <template id="page_0957-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0957-01" data-photo-title="Островное приграничье" data-photo-place="Сахалин, г. Невельск" data-photo-year="1980"></span>
+      </div>
+      <h2 class="publisher-title">Островное приграничье</h2>
+    </template>
+
+    <template id="page_0958-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0958-01" data-photo-title="Застава Графская — рубеж России" data-photo-place="Приморье, Дальнереченский район" data-photo-year="1983"></span>
+        <span data-photo-id="p0958-02" data-photo-title="Застава Графская — рубеж России" data-photo-place="Приморье, Дальнереченский район" data-photo-year="1983"></span>
+      </div>
+      <h2 class="publisher-title">Застава Графская - рубеж России</h2>
+      <p class="article-paragraph">Приморье, Дальнереченский район, 1983</p>
+   </template>
+
+    <template id="page_0959-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0959-01" data-photo-title="«Здравствуй, чайка, и прощай!»" data-photo-place="Сахалин" data-photo-year="1962"></span>
+      </div>
+      <h2 class="publisher-title">«Здравствуй, чайка, и прощай!»</h2>
+    </template>
+
+    <template id="page_0960-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0960-01" data-photo-title="У колодца вода льется" data-photo-place="Приморье, Анучинский район" data-photo-year="1965"></span>
+      </div>
+      <h2 class="publisher-title">У колодца вода льется</h2>
+    </template>
+
+    <template id="page_0962-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0962-01" data-photo-title="Ночной перегруз добытого улова в Охотоморской экспедиции" data-photo-place="Теплоход &laquo;Охотское море&raquo;" data-photo-year="январь 1985"></span>
+      </div>
+      <h2 class="publisher-title">Ночной перегруз добытого улова в Охотоморской экспедиции</h2>
+    </template>
+
+    <template id="page_0963-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0963-01" data-photo-title="Монтажники Новоспасского цементного завода" data-photo-place="Приморье, г. Спасск" data-photo-year="1976"></span>
+      </div>
+      <h2 class="publisher-title">Монтажники Новоспасского цементного завода</h2>
+      <p class="article-paragraph article-paragraph--dropcap">Первые полосы советских газет редко выходили без портрета человека труда. "Люди и дело", "Приморский характер". А вот снять человека труда не по шаблону, а интересно, нестандартно - это подлинное искусство. Сложнее нет задачи. Для меня такие съемки всегда были делом чести и престижа.</p>
+    </template>
+
+    <template id="page_0965-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0965-01" data-photo-title="Топографы-первопроходцы: Николай Парфенов и Анатолий Патлай" data-photo-place="Сахалин" data-photo-year="1962"></span>
+      </div>
+      <h2 class="publisher-title">Топографы-первопроходцы: Николай Парфенов и Анатолий Патлай</h2>
+    </template>
+
+    <template id="page_0966-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0966-01" data-photo-title="Мужская работа" data-photo-place="Приморье" data-photo-year="1976"></span>
+      </div>
+      <h2 class="publisher-title">Мужская работа</h2>
+      <p class="article-paragraph">Прибрежный лов.</p>
+    </template>
+
+    <template id="page_0967-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0967-01" data-photo-title="Мастер лесозаготовительного участка «Веселый» Николай Никифорович Бондарь" data-photo-place="Приморье, леспромхоз «Сергеевский»" data-photo-year="1976"></span>
+      </div>
+      <h2 class="publisher-title">Мастер лесозаготовительного участка «Веселый» Николай Никифорович Бондарь</h2>
+    </template>
+
+    <template id="page_0968-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0968-01" data-photo-title="Через реки, горы и долины" data-photo-place="Леспромхоз «Сергеевский»" data-photo-year="1963"></span>
+      </div>
+      <h2 class="publisher-title">Через реки, горы и долины</h2>
+    </template>
+
+    <template id="page_0969-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0969-01" data-photo-title="Если завтра война..." data-photo-place="Владивосток" data-photo-year="1979"></span>
+      </div>
+      <h2 class="publisher-title">Если завтра война...</h2>
+      <p class="article-paragraph article-paragraph--indent">Митинг на Владивостокском фарфоровом заводе в защиту справедливой борьбы вьетнамского народа. Этот снимок ответсекретарь полтора часа не решался ставить в номер по причине ”суровости лиц советских рабочих“ на первом плане. Дождались редактора ”Красного знамени” Владимира Григорьевича Чухланцева. Он разрядил обстановку: ”На первую полосу, немедленно, крупным планом . - И добавил: <strong>- А если завтра война?</strong>"</p>
+    </template>
+
+    <template id="page_0971-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0971-01" data-photo-title="Проводы на пенсию бригадира котельщиков Находкинского СРЗ Якова Петровича Овечкина" data-photo-place="Находка" data-photo-year="1971"></span>
+      </div>
+      <h2 class="publisher-title">Проводы на пенсию бригадира котельщиков Находкинского СРЗ Якова Петровича Овечкина</h2>
+      <p class="article-paragraph article-paragraph--indent">На съемке работал плечом к плечу с местным телеоператором. Когда церемония подходила к завершению, ответственный работник завода, спохватившись, произнес главное: “Руководить бригадой Якова Петровича доверено его старшему сыну Юрию...". На глазах ветерана заблестели слезы. И тут же погасли софиты... "Ты что, снимать не будешь?” - спрашиваю оператора. "Слезы у нас не пройдут, - ответил он. - Если надо - подсвечу! И я успел снять этот единственный главный кадр, буквально на 1/15 секунды.</p>
+    </template>
+
+    <template id="page_0972-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0972-01" data-photo-title="Когда не гремят якорь-цепи" data-photo-place="Находка, НСРЗ" data-photo-year="1968"></span>
+        <span data-photo-id="p0972-02" data-photo-title="Когда не гремят якорь-цепи" data-photo-place="Находка, НСРЗ" data-photo-year="1968"></span>
+      </div>
+      <h2 class="publisher-title">Когда не гремят якорь-цепи</h2>
+      <p class="article-paragraph">Находка, НСРЗ, 1968</p>
+    </template>
+
+    <template id="page_0974-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0974-01" data-photo-title="Строители Дальневосточного шахтостроительного управления Н. П. Федореев и В. В. Приходько возводят подземный рудник на месторождении «Восток-2»" data-photo-place="Приморье, Дальнегорск" data-photo-year="1984"></span>
+      </div>
+      <h2 class="publisher-title" data-menu-title="Строители Дальневосточного шахтостроительного управления…">Строители Дальневосточного шахтостроительного управления Н. П. Федореев и В. В. Приходько возводят подземный рудник на месторождении "Восток-2"</h2>
+    </template>
+
+    <template id="page_0975-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0975-01" data-photo-title="Сельские хлопоты" data-photo-place="Приморье" data-photo-year="1965"></span>
+      </div>
+      <h2 class="publisher-title">Сельские хлопоты</h2>
+      <p class="article-paragraph">Директор совхоза ”Казанский” Партизанского района Петр Иванович Даниленко.</p>
+    </template>
+
+    <template id="page_0976-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0976-01" data-photo-title="Эта неженская доля..." data-photo-place="Приморье, Хорольский район, совхоз «Новодевичанский»" data-photo-year="1986"></span>
+      </div>
+      <h2 class="publisher-title">Эта неженская доля...</h2>
+    </template>
+
+    <template id="page_0977-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0977-01" data-photo-title="Купание Тура" data-photo-place="Находка, Приисковый" data-photo-year="Август 1981"></span>
+      </div>
+      <h2 class="publisher-title">Купание Тура</h2>
+      <p class="article-paragraph article-paragraph--indent">Эта поистине детективная история случилась в Находке. Группа журналистов прямо с симпозиума "похитила” знаменитого норвежского этнографа и путешественника, двадцатикратного доктора наук Тура Хейердала и устроила морское "крещение" в поселке Приисковом. Как и подобает фоторепортору, я оказался в нужном несте с точностью до секунды, за что и получил благодарный автограф от ”крещенного" , август, 1981 б б</p>
+      <figure class="article-autograph">
+        <img src="./assets/autographs/thor-heyerdahl-1981.png" alt="Автограф Тура Хейердала для Игоря, 24 Августа 1981">
+      </figure>
+      <!-- Историческая справка: текст и ссылки для вычитки и редактирования. -->
+      <details class="historical-note">
+        <summary class="historical-note__toggle" aria-label="Историческая справка" title="Историческая справка">
+          <span class="historical-note__icon" aria-hidden="true">i</span>
+        </summary>
+        <div class="historical-note__body">
+          <section class="historical-note__person">
+            <h3>Тур Хейердал</h3>
+            <p>Норвежский путешественник, исследователь и писатель. Известен морскими экспедициями; в августе 1981 года участвовал в международном семинаре в Находке.</p>
+            <p class="historical-note__source">Источник: <a href="https://nakhodka-lib.ru/гость-находки-тур-хейердал/" target="_blank" rel="noopener noreferrer">Библиотеки Находки</a></p>
+          </section>
+        </div>
+      </details>
+    </template>
+
+    <template id="page_0978-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0978-01" data-photo-title="Океанские подарочки" data-photo-place="" data-photo-year="1977"></span>
+        <span data-photo-id="p0978-02" data-photo-title="Океанские подарочки" data-photo-place="" data-photo-year="1977"></span>
+      </div>
+      <h2 class="publisher-title">Океанские подарочки</h2>
+      <p class="article-paragraph">Японское море. 1977</p>
+    </template>
+
+    <template id="page_0979-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0979-01" data-photo-title="Непредвиденный случай в ходе официального визита" data-photo-place="Находка" data-photo-year="16 января 1967"></span>
+      </div>
+      <h2 class="publisher-title">Непредвиденный случай в ходе официального визита</h2>
+      <p class="article-paragraph article-paragraph--indent">Председатель Совмина СССР А. Н. Косыгин вместе с сопровождающими лицами был доставлен к причалу Находкинского морвокзала на... видавшем виды буксирчике - кантователе. Перед этим изящный военный корабль пытался проделать тот же маневр сквозь плотный лед. Не получилось. (Пятнадцать лет висел этот снимок в рубке буксира. Потом наступили иные времена...)</p>
+      <!-- Историческая справка: текст и ссылки для вычитки и редактирования. -->
+      <details class="historical-note">
+        <summary class="historical-note__toggle" aria-label="Историческая справка" title="Историческая справка">
+          <span class="historical-note__icon" aria-hidden="true">i</span>
+        </summary>
+        <div class="historical-note__body">
+          <section class="historical-note__person">
+            <h3>Алексей Николаевич Косыгин</h3>
+            <p>Советский государственный деятель, председатель Совета министров СССР. В январе 1967 года посетил Приморье и Находку.</p>
+            <p class="historical-note__source">Источник: <a href="https://militera.lib.ru/h/tihookeanskiy_flot/15.html" target="_blank" rel="noopener noreferrer">«Краснознамённый Тихоокеанский флот»</a></p>
+          </section>
+        </div>
+      </details>
+    </template>
+
+    <template id="page_0980-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0980-01" data-photo-title="М. А. Шолохов в Находке" data-photo-place="" data-photo-year="8 Мая 1966"></span>
+      </div>
+      <h2 class="publisher-title">М. А. Шолохов в Находке</h2>
+      <!-- Историческая справка: текст и ссылки для вычитки и редактирования. -->
+      <details class="historical-note">
+        <summary class="historical-note__toggle" aria-label="Историческая справка" title="Историческая справка">
+          <span class="historical-note__icon" aria-hidden="true">i</span>
+        </summary>
+        <div class="historical-note__body">
+          <section class="historical-note__person">
+            <h3>Михаил Александрович Шолохов</h3>
+            <p>Советский писатель, лауреат Нобелевской премии по литературе. 8 мая 1966 года посетил Находку по пути в Японию.</p>
+            <p class="historical-note__source">Источник: <a href="https://nakhodka-lib.ru/от-тихого-дона-до-тихого-океана-миха/" target="_blank" rel="noopener noreferrer">Библиотеки Находки</a></p>
+          </section>
+        </div>
+      </details>
+    </template>
+
+    <template id="page_0981-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0981-01" data-photo-title="Космонавт-2 Герман Степанович Титов в гостях у судоремонтников ПСРЗ" data-photo-place="Находка" data-photo-year="Март 1964"></span>
+      </div>
+      <h2 class="publisher-title">Космонавт-2 Герман Степанович Титов в гостях у судоремонтников ПСРЗ</h2>
+      <!-- Историческая справка: текст и ссылки для вычитки и редактирования. -->
+      <details class="historical-note">
+        <summary class="historical-note__toggle" aria-label="Историческая справка" title="Историческая справка">
+          <span class="historical-note__icon" aria-hidden="true">i</span>
+        </summary>
+        <div class="historical-note__body">
+          <section class="historical-note__person">
+            <h3>Герман Степанович Титов</h3>
+            <p>Советский лётчик-космонавт, Герой Советского Союза. Второй человек, совершивший орбитальный космический полёт, и первый, проведший в космосе более суток.</p>
+            <p class="historical-note__source">Источник: <a href="https://kns.roscosmos.ru/media/files/posters/cite/titov_2.pdf" target="_blank" rel="noopener noreferrer">Роскосмос (PDF)</a></p>
+          </section>
+        </div>
+      </details>
+    </template>
+
+    <template id="page_0982-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0982-01" data-photo-title="Победитель огня. Начальник пожарного караула Дальзавода Анатолий Алексеенко" data-photo-place="Владивосток" data-photo-year="1984"></span>
+      </div>
+      <h2 class="publisher-title">Победитель огня</h2>
+      <p class="article-paragraph">Начальник пожарного караула Дальзавода Анатолий Алексеенко.</p>
+    </template>
+
+    <template id="page_0983-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0983-01" data-photo-title="Трудный рис" data-photo-place="Приморье, Спасский район, совхоз «Новосельский»" data-photo-year="1976"></span>
+      </div>
+      <h2 class="publisher-title">Трудный рис</h2>
+    </template>
+
+    <template id="page_0984-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0984-01" data-photo-title="Рисовод Виктор Фролович Тюков" data-photo-place="Спасский район, совхоз «Новосельский»" data-photo-year="1976"></span>
+      </div>
+      <h2 class="publisher-title">Рисовод Виктор Фролович Тюков</h2>
+    </template>
+
+    <template id="page_0985-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0985-01" data-photo-title="Крестьянское хозяйство Николая Михайловича Косьяненко из села Новоникольск Уссурийского района зародилось в начале 90-х" data-photo-place="Приморье" data-photo-year="1996"></span>
+      </div>
+      <h2 class="publisher-title">Крестьянское хозяйство Николая Михайловича Косьяненко из села Новоникольск уссурийского района зародилось в начале 90-х.</h2>
+      <p class="article-paragraph article-paragraph--indent">Познакомиться с новоявленным предпринимателем в гости заезжал сам Александр Солженицын. На этом снимке - Николай Михайлович с супругой Еленой Григорьевной в окружении детей и внуков. Сегодня хозяйство возглавляют старший сын Косьяненко Николай Николаевич и его жена Надежда.</p>
+    </template>
+
+    <template id="page_0986-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0986-01" data-photo-title="Разговор о земле" data-photo-place="" data-photo-year=""></span>
+      </div>
+      <h2 class="publisher-title">Разговор о земле</h2>
+      <p class="article-paragraph article-paragraph--indent">Директор совхоза ”Шкотовский” Николай Иванович Метликин. У нас с ним были доверительные и теплые отношения. Как-то решил поместить его снимок, сделанный ”скрытой” камерой, в репортаж. Узнав об этом, он два часа уговаривал меня ”не бросать его под танк”. Но фотография уже стояла в полосе... С тех пор Николай Иванович не подпускал меня к себе на близкое расстояние...</p>
+    </template>
+
+    <template id="page_0987-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0987-01" data-photo-title="Касим Машиевич Джантудиев — чабан" data-photo-place="Приморье, Лазовский район, совхоз им. КПСС" data-photo-year="1963"></span>
+      </div>
+      <h2 class="publisher-title">Касим Машиевич Джантудиев — чабан</h2>
+      <p class="article-paragraph article-paragraph--indent">Когда слава о нем дошла до Москвы, оттуда запросили его фотографию. Этот снимок я и отправил в одно из центральных издательств. Там герою до синевы ”выбрили” лицо, убрали “усталость” во взгляде, ”зажгли” глаза. Потом чабан говорил районному газетчику, доставившему метровый плакат прямо в поле: ”Добрую фотографию мне ваш фотограф сделал, пусть за барашком приезжает...”</p>
+      <!-- Историческая справка: сведения из книги подтверждены сканом с. 52.
+           Карточка в «Открытом списке» прочитана через API 05.09.2026:
+           pageid 1169880; источник карточки — МВД Кабардино-Балкарии; ф. 47 оп. 7 д. 456.
+           Соответствие карточки человеку на фото подтверждено владельцем проекта 05.09.2026.
+           Написание фамилии в книге — Джантудиев, в карточке — Джантудуев. -->
+      <details class="historical-note">
+        <summary class="historical-note__toggle" aria-label="Историческая справка" title="Историческая справка">
+          <span class="historical-note__icon" aria-hidden="true">i</span>
+        </summary>
+        <div class="historical-note__body">
+          <section class="historical-note__person">
+            <h3>Касим Машиевич Джантудиев</h3>
+            <p>Родился в 1902 году в Чегеме-1. Был выселен в Приморский край по национальному признаку. Реабилитирован 31 октября 1995 года.</p>
+            <p>Чабан совхоза им. КПСС в Лазовском районе Приморского края. Снят Игорем Гусевым в 1963 году. По воспоминаниям фотографа, его портрет использовало одно из центральных издательств для выпуска плаката.</p>
+            <p class="historical-note__source">Источник: <a href="./assets/originals/page_0987_original.png" target="_blank" rel="noopener noreferrer">Игорь Гусев. «Прощай и здравствуй», 2006, с. 52</a></p>
+            <p class="historical-note__source">Источник: <a href="https://ru.openlist.wiki/Джантудуев_Касим_Машиевич_(1902)" target="_blank" rel="noopener noreferrer">«Открытый список», данные МВД Кабардино-Балкарии</a>. В карточке фамилия указана как Джантудуев.</p>
+          </section>
+        </div>
+      </details>
+    </template>
+
+    <template id="page_0988-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0988-01" data-photo-title="Александр Майдан и его конь-огонь" data-photo-place="Приморье, Кировский район" data-photo-year="1975"></span>
+      </div>
+      <h2 class="publisher-title">Александр Майдан и его конь-огонь</h2>
+    </template>
+
+    <template id="page_0989-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0989-01" data-photo-title="В обеденный перерыв на Новоспасском цемзаводе" data-photo-place="Приморье" data-photo-year="1976"></span>
+      </div>
+      <h2 class="publisher-title" data-menu-title="В обеденный перерыв">В обеденный перерыв на Новоспасском цемзаводе</h2>
+    </template>
+
+    <template id="page_0990-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0990-01" data-photo-title="Накануне «Красной субботы» Уссурийское локомотивное депо ”оккупировали” журналисты из края" data-photo-place="" data-photo-year="Апрель 1975"></span>
+      </div>
+      <h2 class="publisher-title" data-menu-title="Накануне «красной субботы»">Накануне ”Красной субботы” Уссурийское локомотивное депо ”оккупировали” журналисты из края</h2>
+    </template>
+
+    <template id="page_0991-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0991-01" data-photo-title="Концерт в цехе" data-photo-place="Находка, НСРЗ" data-photo-year="1969"></span>
+      </div>
+      <h2 class="publisher-title">Концерт в цехе</h2>
+    </template>
+
+    <template id="page_0992-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0992-01" data-photo-title="Прикосновение к вечному" data-photo-place="" data-photo-year="1975"></span>
+      </div>
+      <h2 class="publisher-title">Прикосновение к вечному</h2>
+      <p class="article-paragraph">Штукатуры-маляры треста КПД из бригады Р. В. Насырь в картинной галерее Владивостока.</p>
+    </template>
+
+    <template id="page_0993-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0993-01" data-photo-title="Выше всех" data-photo-place="Владивосток" data-photo-year="9 Мая 1980"></span>
+      </div>
+      <h2 class="publisher-title">Выше всех</h2>
+      <p class="article-paragraph">Привычная точка съемки фотокорреспондента ТАСС по Дальнему Востоку Юрия Яковлевича Муравина.</p>
+      <!-- Историческая справка: текст и ссылки для вычитки и редактирования. -->
+      <details class="historical-note">
+        <summary class="historical-note__toggle" aria-label="Историческая справка" title="Историческая справка">
+          <span class="historical-note__icon" aria-hidden="true">i</span>
+        </summary>
+        <div class="historical-note__body">
+          <section class="historical-note__person">
+            <h3>Юрий Яковлевич Муравин</h3>
+            <p>Фотокорреспондент ТАСС по Дальнему Востоку. Автор фотографий Владивостока и других дальневосточных территорий.</p>
+            <p class="historical-note__source">Источник: <a href="https://www.net-film.ru/photo-137444/" target="_blank" rel="noopener noreferrer">Фотокаталог «Нэт-Фильм», Муравин / ТАСС</a></p>
+          </section>
+        </div>
+      </details>
+    </template>
+
+    <template id="page_0994-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0994-01" data-photo-title="Владимир Яковлевич Леванидов" data-photo-place="Владивосток" data-photo-year="1978"></span>
+      </div>
+      <h2 class="publisher-title" data-menu-title="Владимир Яковлевич Леванидов">Владимир Яковлевич Леванидов - доктор биологических наук, профессор</h2>
+      <p class="article-paragraph">Всю свою жизнь посвятил проблемам воспроизводства пресноводного лосося в условиях Дальнего Востока.</p>
+      <!-- Историческая справка: текст и ссылки для вычитки и редактирования. -->
+      <details class="historical-note">
+        <summary class="historical-note__toggle" aria-label="Историческая справка" title="Историческая справка">
+          <span class="historical-note__icon" aria-hidden="true">i</span>
+        </summary>
+        <div class="historical-note__body">
+          <section class="historical-note__person">
+            <h3>Владимир Яковлевич Леванидов</h3>
+            <p>Советский гидробиолог, доктор биологических наук, профессор. Один из основоположников изучения экосистем лососевых рек Дальнего Востока России.</p>
+            <p class="historical-note__source">Источник: <a href="https://www.biosoil.ru/storage/entities/publication/19651/00019651.pdf" target="_blank" rel="noopener noreferrer">ФНЦ Биоразнообразия ДВО РАН (PDF)</a></p>
+          </section>
+        </div>
+      </details>
+    </template>
+
+    <template id="page_0995-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0995-01" data-photo-title="В ожидании праздника" data-photo-place="Владивосток" data-photo-year="1 Мая 1982"></span>
+      </div>
+      <h2 class="publisher-title">В ожидании праздника</h2>
+    </template>
+
+    <template id="page_0996-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0996-01" data-photo-title="Первая в мире женщина-капитан дальнего плавания Анна Ивановна Щетинина" data-photo-place="Владивосток" data-photo-year="1978"></span>
+      </div>
+      <h2 class="publisher-title" data-menu-title="Первая в мире женщина-капитан дальнего плавания">Первая в мире женщина-капитан дальнего плавания Анна Ивановна Щетинина</h2>
+      <!-- Историческая справка: текст и ссылки для вычитки и редактирования. -->
+      <details class="historical-note">
+        <summary class="historical-note__toggle" aria-label="Историческая справка" title="Историческая справка">
+          <span class="historical-note__icon" aria-hidden="true">i</span>
+        </summary>
+        <div class="historical-note__body">
+          <section class="historical-note__person">
+            <h3>Анна Ивановна Щетинина</h3>
+            <p>Капитан дальнего плавания, Герой Социалистического Труда. Первая в мире дипломированная женщина — капитан дальнего плавания. Преподавала в Дальневосточном высшем инженерном морском училище имени адмирала Г. И. Невельского.</p>
+            <p class="historical-note__source">Источник: <a href="https://marine.org.ru/publication/smi/17159/" target="_blank" rel="noopener noreferrer">Морская коллегия Российской Федерации</a></p>
+          </section>
+        </div>
+      </details>
+    </template>
+
+    <template id="page_0997-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0997-01" data-photo-title="Ворошиловский стрелок" data-photo-place="Владивосток" data-photo-year="1982"></span>
+      </div>
+      <h2 class="publisher-title">Ворошиловский стрелок</h2>
+      <p class="article-paragraph">За плечами стрелка ВОХР ТЭЦ-2 Луки Яковлевича Панченко три войны - первая мировая, гражданская и Отечественная.</p>
+    </template>
+
+    <template id="page_0998-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0998-01" data-photo-title="Городская картинка" data-photo-place="Владивосток" data-photo-year="1963"></span>
+      </div>
+      <h2 class="publisher-title">Городская картинка</h2>
+      <p class="article-paragraph">В ресторан подвезли мясо.</p>
+    </template>
+
+    <template id="page_0999-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p0999-01" data-photo-title="Железнодорожный переезд у станции Екатериновка" data-photo-place="" data-photo-year="1963"></span>
+      </div>
+      <h2 class="publisher-title" data-menu-title="Железнодорожный переезд у станции Екатериновка">Железнодорожный переезд у станции Екатериновка под Находкой</h2>
+      <p class="article-paragraph">Вот-вот канет в лету паровозная тяга...</p>
+    </template>
+
+    <template id="page_1000-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1000-01" data-photo-title="Писатель Юлиан Семенов" data-photo-place="Находка" data-photo-year="Май 1969"></span>
+      </div>
+      <h2 class="publisher-title">Писатель Юлиан Семенов</h2>
+      <p class="article-paragraph article-paragraph--indent">Он приехал в Находку инкогнито. С помощью знакомого милиционера мы взяли его ”под колпак” в досмотровом зале местной таможни. Потом безнадежно долго прощались. Наконец, он не выдержал и сказал: “Мужики, если вы не поспешите в редакцию писать обо мне репортаж, то через 17 мгновений я сойду с поезда и навсегда останусь в Находке...".</p>
+      <!-- Историческая справка: текст и ссылки для вычитки и редактирования. -->
+      <details class="historical-note">
+        <summary class="historical-note__toggle" aria-label="Историческая справка" title="Историческая справка">
+          <span class="historical-note__icon" aria-hidden="true">i</span>
+        </summary>
+        <div class="historical-note__body">
+          <section class="historical-note__person">
+            <h3>Юлиан Семёнович Семёнов</h3>
+            <p>Советский писатель. Автор романов «Семнадцать мгновений весны» и «Майор Вихрь».</p>
+            <p class="historical-note__source">Источник: <a href="https://search.rsl.ru/ru/record/01001655925" target="_blank" rel="noopener noreferrer">Российская государственная библиотека</a></p>
+          </section>
+        </div>
+      </details>
+    </template>
+
+    <template id="page_1001-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1001-01" data-photo-title="Опасный лед" data-photo-place="Беренгово море" data-photo-year="1987"></span>
+      </div>
+      <h2 class="publisher-title">Опасный лед</h2>
+    </template>
+
+    <template id="page_1002-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1002-01" data-photo-title="Так растапливался лед недоверия" data-photo-place="Владивосток, ст. Санаторная" data-photo-year="23 Ноября 1974"></span>
+      </div>
+      <h2 class="publisher-title">Так растапливался лед недоверия</h2>
+      <p class="article-paragraph">Президент США Дж. Форд и Генеральный секретарь ЦК КПСС Л. Брежнев за несколько минут до Официальных переговоров об ограничении стратегических наступательных вооружений. Владивосток, ст. Санаторная. 23 ноября 1974 года</p>
+      <!-- Историческая справка: текст и ссылки для вычитки и редактирования. -->
+      <details class="historical-note">
+        <summary class="historical-note__toggle" aria-label="Историческая справка" title="Историческая справка">
+          <span class="historical-note__icon" aria-hidden="true">i</span>
+        </summary>
+        <div class="historical-note__body">
+          <section class="historical-note__person">
+            <h3>Джеральд Форд</h3>
+            <p>Президент США. 23–24 ноября 1974 года участвовал во Владивостокской встрече с Леонидом Брежневым по вопросам ограничения стратегических вооружений.</p>
+            <p class="historical-note__source">Источник: <a href="https://www.fordlibrarymuseum.gov/digital-research-room/library-collections/topic-guides/vladivostok-summit-meeting-arms-control" target="_blank" rel="noopener noreferrer">Президентская библиотека Джеральда Форда</a></p>
+          </section>
+          <section class="historical-note__person">
+            <h3>Леонид Ильич Брежнев</h3>
+            <p>Генеральный секретарь ЦК КПСС. Представлял советскую сторону на переговорах с президентом США Джеральдом Фордом во Владивостоке 23–24 ноября 1974 года.</p>
+            <p class="historical-note__source">Источник: <a href="https://www.fordlibrarymuseum.gov/digital-research-room/library-collections/topic-guides/vladivostok-summit-meeting-arms-control" target="_blank" rel="noopener noreferrer">Президентская библиотека Джеральда Форда</a></p>
+          </section>
+        </div>
+      </details>
+    </template>
+
+    <template id="page_1003-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1003-01" data-photo-title="Малая родина" data-photo-place="" data-photo-year=""></span>
+      </div>
+      <h2 class="publisher-title">Малая родина</h2>
+      <p class="article-paragraph article-paragraph--dropcap">Своей малой родиной я считаю прекрасную дальневосточную землю: Сахалин, Курилы, Приморье. В середине 40-х, после войны, она приняла нашу семью, обогрела, накормила, обустроила. Такой она останется навсегда в моей памяти - доброй, гостеприимной и бескорыстной</p>
+    </template>
+
+    <template id="page_1004-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1004-01" data-photo-title="Родная сторонка" data-photo-place="Приморье, п. Тигровый" data-photo-year="2000"></span>
+      </div>
+      <h2 class="publisher-title">Родная сторонка</h2>
+    </template>
+
+    <template id="page_1005-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1005-01" data-photo-title="Такой необыкновенный Курильск" data-photo-place="" data-photo-year="1974"></span>
+      </div>
+      <h2 class="publisher-title">Такой необыкновенный Курильск</h2>
+      <p class="article-paragraph">Здесь море подходит к самым домам, речка перегружена рыбой, есть лебяжье озеро и пограничная застава. А еще - крутые лестницы, по взгоркам и сопкам. На всякий ”цунамный” случай.</p>
+    </template>
+
+    <template id="page_1006-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1006-01" data-photo-title="За спиной — Тихий океан" data-photo-place="Остров Кунашир, восточное побережье" data-photo-year="1980"></span>
+      </div>
+      <h2 class="publisher-title">За спиной — Тихий океан</h2>
+      <p class="article-paragraph">Дальше на восток российских земель больше нет.</p>
+    </template>
+
+    <template id="page_1007-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1007-01" data-photo-title="Рыбная жизнь" data-photo-place="Остров Итуруп" data-photo-year="1974"></span>
+      </div>
+      <h2 class="publisher-title">"Рыбная жизнь"</h2>
+      <p class="article-paragraph">Это когда по рыбе водишь баркасы с рыбой, ешь рыбу вареную, жареную, соленую... Даже чай заедаешь рыбой.</p>
+    </template>
+
+    <template id="page_1008-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1008-01" data-photo-title="Рыбацкий рейд" data-photo-place="Город Курильск" data-photo-year="1977"></span>
+      </div>
+      <h2 class="publisher-title">Рыбацкий рейд</h2>
+    </template>
+
+    <template id="page_1009-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1009-01" data-photo-title="Островное «такси» только по заказу" data-photo-place="Остров Итуруп" data-photo-year="1974"></span>
+      </div>
+      <h2 class="publisher-title" data-menu-title="Островное «такси»">Островное «такси» только по заказу</h2>
+    </template>
+
+    <template id="page_1010-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1010-01" data-photo-title="Полуденный паром" data-photo-place="Приморье, поселок Кировский" data-photo-year="1979"></span>
+      </div>
+      <h2 class="publisher-title">Полуденный паром</h2>
+    </template>
+
+    <template id="page_1012-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1012-01" data-photo-title="Курильская аномалия" data-photo-place="Итуруп" data-photo-year="1977"></span>
+      </div>
+      <h2 class="publisher-title">Курильская аномалия</h2>
+      <p class="article-paragraph">Перед таким долгожителем впору преклонить колено...</p>
+    </template>
+
+    <template id="page_1013-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1013-02" data-photo-title="Курильские аборигены" data-photo-place="" data-photo-year="1975"></span>
+        <span data-photo-id="p1013-01" data-photo-title="Долгий снег Кунашира" data-photo-place="Сахалин" data-photo-year="июль 1977"></span>
+      </div>
+      <h2 class="publisher-title">Курильские аборигены</h2>
+    </template>
+
+    <template id="page_1014-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1014-01" data-photo-title="Дети переселенцев неведомой по счету волны" data-photo-place="Сахалин, село Покровка" data-photo-year="1961"></span>
+      </div>
+      <h2 class="publisher-title">Дети переселенцев неведомой по счету волны</h2>
+    </template>
+
+    <template id="page_1015-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1015-01" data-photo-title="Юрий Игнатьевич Демченко — знатный приморский садовод" data-photo-place="Приморье, Партизанский район, с. Новицкое" data-photo-year="1967"></span>
+      </div>
+      <h2 class="publisher-title">Юрий Игнатьевич Демченко — знатный приморский садовод</h2>
+      <p class="article-paragraph">Он владел уникальными секретами выращивания зимостойких сортов яблок, груш, раннеспелого винограда. Таких садов, как в орденоносном совхозе ”Партизанский” , не было до самого Урала.</p>
+      <!-- Историческая справка: текст и ссылки для вычитки и редактирования. -->
+      <details class="historical-note">
+        <summary class="historical-note__toggle" aria-label="Историческая справка" title="Историческая справка">
+          <span class="historical-note__icon" aria-hidden="true">i</span>
+        </summary>
+        <div class="historical-note__body">
+          <section class="historical-note__person">
+            <h3>Юрий Игнатьевич Демченко</h3>
+            <p>Приморский садовод. Работал в селе Новицком Партизанского района. Вывел шесть сортов яблонь, награждён орденом Ленина. Почётный гражданин Партизанского района.</p>
+            <p class="historical-note__source">Источник: <a href="https://pgpb.ru/media/document/34W2FDCEGVA23P4EFCCQ7K6MJE.pdf#page=113" target="_blank" rel="noopener noreferrer">Приморская краевая публичная библиотека, с. 112 (PDF)</a></p>
+          </section>
+        </div>
+      </details>
+    </template>
+
+    <template id="page_1016-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1016-01" data-photo-title="Перед обеденной дойкой" data-photo-place="Приморье, Спасский район" data-photo-year="1983"></span>
+      </div>
+      <h2 class="publisher-title">Перед обеденной дойкой</h2>
+    </template>
+
+    <template id="page_1017-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1017-01" data-photo-title="Милая сердцу сельская глубинка" data-photo-place="Лазовский район, с. Киевка" data-photo-year="1966"></span>
+      </div>
+      <h2 class="publisher-title">Милая сердцу сельская глубинка</h2>
+      <p class="article-paragraph">Сюда в конце XIX века устремлялись переселенцы из Украины, Белоруссии, Молдавии, западных районов России. Новые края становились малой родиной для них и их потомков.</p>
+    </template>
+
+    <template id="page_1018-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1018-01" data-photo-title="В буераке у дубовой рощи" data-photo-place="Приморье, Партизанский район, с. Сергеевка" data-photo-year="1965"></span>
+      </div>
+      <h2 class="publisher-title">В буераке у дубовой рощи</h2>
+    </template>
+
+    <template id="page_1019-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1019-01" data-photo-title="Жили-были..." data-photo-place="Приморье, п. Тигровый" data-photo-year="1981"></span>
+      </div>
+      <h2 class="publisher-title">Жили-были...</h2>
+    </template>
+
+    <template id="page_1020-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1020-01" data-photo-title="Федор Конюхов — мировая известность" data-photo-place="Владивосток" data-photo-year="1990"></span>
+      </div>
+      <h2 class="publisher-title" data-menu-title="Федор Конюхов — мировая известность">У известного приморского путешественника Федора Конюхова - мировая известность.</h2>
+      <!-- Историческая справка: текст и ссылки для вычитки и редактирования. -->
+      <details class="historical-note">
+        <summary class="historical-note__toggle" aria-label="Историческая справка" title="Историческая справка">
+          <span class="historical-note__icon" aria-hidden="true">i</span>
+        </summary>
+        <div class="historical-note__body">
+          <section class="historical-note__person">
+            <h3>Фёдор Филиппович Конюхов</h3>
+            <p>Российский путешественник. В 1990 году совершил одиночный поход к Северному полюсу, в 1990–1991 годах — одиночное кругосветное плавание на яхте «Караана».</p>
+            <p class="historical-note__source">Источник: <a href="https://konyukhov.ru/biography/" target="_blank" rel="noopener noreferrer">Официальный сайт Фёдора Конюхова</a></p>
+          </section>
+        </div>
+      </details>
+    </template>
+
+    <template id="page_1021-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1021-01" data-photo-title="Здравствуй, любовь моя!" data-photo-place="Владивосток" data-photo-year="Июль 1975"></span>
+      </div>
+      <h2 class="publisher-title">Здравствуй, любовь моя!</h2>
+      <p class="article-paragraph">Во время встречи китобойной флотилии ”Советская Россия" из антарктической экспедиции. Молодожены Алексей и Елена Глуховы снова вместе.</p>
+    </template>
+
+    <template id="page_1022-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1022-01" data-photo-title="Память" data-photo-place="" data-photo-year=""></span>
+      </div>
+      <h2 class="publisher-title">Память</h2>
+      <p class="article-paragraph article-paragraph--dropcap">Память - это закон души, по которому каждый из нас сверяет свои жизненные ценности. Память - категория нравственная. Она должна давать добрые всходы и рождать надежду. Обидно, что порой пустыми разговорами, идеологической шелухой и сиюминутным расчетом мы убиваем нашу память, обрекая на забвение все то, что должны хранить в душе вечно</p>
+    </template>
+
+    <template id="page_1023-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1023-01" data-photo-title="Почетный пионер Находки" data-photo-place="" data-photo-year="1970"></span>
+      </div>
+      <h2 class="publisher-title" data-menu-title="Почетный пионер Находки">Почетный пионер Находки, знатный судоремонтник В. Нетак</h2>
+    </template>
+
+    <template id="page_1024-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1024-01" data-photo-title="Полные кавалеры орденов Славы и &laquo;Трудовой славы&raquo;&colon; строитель Василий Афанасьевич Осипенко и судоремонтник Дмитрий Никифорович Бондаренко" data-photo-place="Владивосток" data-photo-year="1982"></span>
+      </div>
+      <h2 class="publisher-title" data-menu-title="Полные кавалеры орденов Славы и Трудовой славы">Полные кавалеры орденов Славы и "Трудовой славы": строитель Василий Афанасьевич Осипенко и судоремонтник Дмитрий Никифорович Бондаренко</h2>
+      <!-- Историческая справка: текст и ссылки для вычитки и редактирования. -->
+      <details class="historical-note">
+        <summary class="historical-note__toggle" aria-label="Историческая справка" title="Историческая справка">
+          <span class="historical-note__icon" aria-hidden="true">i</span>
+        </summary>
+        <div class="historical-note__body">
+          <section class="historical-note__person">
+            <h3>Василий Афанасьевич Осипенко</h3>
+            <p>Бригадир монтажников Владивостокского домостроительного комбината. Полный кавалер ордена Трудовой Славы с 1983 года. В подписи к снимку 1982 года указан его более поздний наградной статус.</p>
+            <p class="historical-note__source">Источник: <a href="https://ru.wikipedia.org/wiki/Осипенко,_Василий_Афанасьевич" target="_blank" rel="noopener noreferrer">Википедия</a></p>
+          </section>
+          <section class="historical-note__person">
+            <h3>Дмитрий Никифорович Бондаренко</h3>
+            <p>Участник Великой Отечественной войны, командир стрелкового отделения. Полный кавалер ордена Славы.</p>
+            <p class="historical-note__source">Источник: <a href="https://arseniev.org/wp-content/uploads/2021/03/Лекция-Орден-Славы.pdf" target="_blank" rel="noopener noreferrer">Музей истории Дальнего Востока имени В. К. Арсеньева (PDF)</a></p>
+          </section>
+        </div>
+      </details>
+    </template>
+
+    <template id="page_1025-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1025-01" data-photo-title="У памятника Герою Советского Союза санинструктору Марии Цукановой" data-photo-place="Владивосток" data-photo-year="1975"></span>
+      </div>
+      <h2 class="publisher-title" data-menu-title="У памятника Марии Цукановой">У памятника Герою Советского Союза санинструктору Марии Цукановой</h2>
+    </template>
+
+    <template id="page_1026-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1026-01" data-photo-title="Встреча однополчан" data-photo-place="Владивосток" data-photo-year="1982"></span>
+      </div>
+      <h2 class="publisher-title">Встреча однополчан</h2>
+      <p class="article-paragraph">В день открытия мемориала "Боевая слава Тихоокеанского флота”.</p>
+    </template>
+
+    <template id="page_1027-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1027-01" data-photo-title="Портрет героя" data-photo-place="" data-photo-year="1975"></span>
+      </div>
+      <h2 class="publisher-title">Портрет героя</h2>
+      <p class="article-paragraph">Владивостокский художник Жорж Кочубей и боевой летчик Петр Филатович Аникин.</p>
+      <!-- Историческая справка: текст и ссылки для вычитки и редактирования. -->
+      <details class="historical-note">
+        <summary class="historical-note__toggle" aria-label="Историческая справка" title="Историческая справка">
+          <span class="historical-note__icon" aria-hidden="true">i</span>
+        </summary>
+        <div class="historical-note__body">
+          <section class="historical-note__person">
+            <h3>Жорж Семёнович Кочубей</h3>
+            <p>Приморский живописец и педагог. Известен портретами и пейзажами Дальнего Востока.</p>
+            <p class="historical-note__source">Источник: <a href="https://arseniev.org/wp-content/uploads/2022/09/Альбом-художников-Остров-Владивосток.pdf" target="_blank" rel="noopener noreferrer">Музейный альбом «Остров Владивосток» (PDF)</a></p>
+          </section>
+        </div>
+      </details>
+    </template>
+
+    <template id="page_1028-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1028-01" data-photo-title="В Москву, на парад Победы" data-photo-place="Владивосток" data-photo-year="1985"></span>
+      </div>
+      <h2 class="publisher-title">В Москву, на парад Победы</h2>
+      <p class="article-paragraph">Приморцы - Герои Советского Союза и полные кавалеры ордена Славы (слева направо): Г. С. Григорьев, Д. Н. Бондаренко, И. С. Сундиев, Н. С. Диденко.</p>
+      <!-- Историческая справка: текст и ссылки для вычитки и редактирования. -->
+      <details class="historical-note">
+        <summary class="historical-note__toggle" aria-label="Историческая справка" title="Историческая справка">
+          <span class="historical-note__icon" aria-hidden="true">i</span>
+        </summary>
+        <div class="historical-note__body">
+          <section class="historical-note__person">
+            <h3>Дмитрий Никифорович Бондаренко</h3>
+            <p>Участник Великой Отечественной войны, командир стрелкового отделения. Полный кавалер ордена Славы. В подписи к фотографии указан вторым слева.</p>
+            <p class="historical-note__source">Источник: <a href="https://arseniev.org/wp-content/uploads/2021/03/Лекция-Орден-Славы.pdf" target="_blank" rel="noopener noreferrer">Музей истории Дальнего Востока имени В. К. Арсеньева (PDF)</a></p>
+          </section>
+          <section class="historical-note__person">
+            <h3>Иван Степанович Сундиев</h3>
+            <p>Участник Великой Отечественной войны, артиллерист. Герой Советского Союза с 1945 года. Отличился при форсировании Одера в январе 1945 года. С 1969 года жил в Кавалерове Приморского края.</p>
+            <p class="historical-note__source">Источник: <a href="https://warheroes.ru/hero/hero.asp?Hero_id=21702" target="_blank" rel="noopener noreferrer">«Герои страны»</a></p>
+          </section>
+          <section class="historical-note__person">
+            <h3>Николай Селиверстович Диденко</h3>
+            <p>Участник Великой Отечественной войны, разведчик, старшина. Полный кавалер ордена Славы. Родился в селе Кронштадтка Приморья, после войны жил в Партизанске.</p>
+            <p class="historical-note__source">Источник: <a href="https://ru.wikipedia.org/wiki/Диденко,_Николай_Селиверстович" target="_blank" rel="noopener noreferrer">Википедия</a></p>
+          </section>
+        </div>
+      </details>
+    </template>
+
+    <template id="page_1029-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1029-01" data-photo-title="Слезы матери" data-photo-place="Приморье, Михайловский район" data-photo-year="1975"></span>
+      </div>
+      <h2 class="publisher-title">Слезы матери</h2>
+      <p class="article-paragraph article-paragraph--indent">Этот снимок сделан в 1975 году. 30 лет ждет сына с войны колхозница из Осиновки Меланья Федоровна Штепа. Запомнился он матери в темной спецовке ФЗО, веселым и ласковым.</p>
+    </template>
+
+    <template id="page_1030-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1030-01" data-photo-title="Давай закурим, товарищ мой" data-photo-place="Владивосток" data-photo-year="9 Мая 1979"></span>
+      </div>
+      <h2 class="publisher-title">Давай закурим, товарищ мой</h2>
+      <p class="article-paragraph">Герой Советского Союза, кинооператор студии ”Дальтелефильм” Виктор Петрович Кузнецов (справа) с однополчанином.</p>
+      <!-- Историческая справка: текст и ссылки для вычитки и редактирования. -->
+      <details class="historical-note">
+        <summary class="historical-note__toggle" aria-label="Историческая справка" title="Историческая справка">
+          <span class="historical-note__icon" aria-hidden="true">i</span>
+        </summary>
+        <div class="historical-note__body">
+          <section class="historical-note__person">
+            <h3>Виктор Петрович Кузнецов</h3>
+            <p>Герой Советского Союза, участник Великой Отечественной войны. После войны работал кинооператором Владивостокского телевидения и студии «Дальтелефильм».</p>
+            <p class="historical-note__source">Источник: <a href="https://history.vestiprim.ru/persons/183-kuznecov-viktor.html" target="_blank" rel="noopener noreferrer">История ГТРК «Владивосток»</a></p>
+          </section>
+        </div>
+      </details>
+    </template>
+
+    <template id="page_1031-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1031-01" data-photo-title="Рядовой войны Иван Макаров" data-photo-place="Владивосток" data-photo-year="1978"></span>
+      </div>
+      <h2 class="publisher-title">Рядовой войны Иван Макаров</h2>
+    </template>
+
+    <template id="page_1032-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1032-01" data-photo-title="Победная плясовая" data-photo-place="Владивосток" data-photo-year="9 Мая 1987"></span>
+      </div>
+      <h2 class="publisher-title">Победная плясовая</h2>
+      <p class="article-paragraph article-paragraph--dropcap">Новая эпоха для меня начинается после неудавшейся горбачевской перестройки. Отражать этот переход страны из одного состояния в другое пришлось уже на цветных фотоматериалах. В те дни мы на самом деле сделали шаг из тьмы в многообещающее радужное будущее. Не всё получилось, но шаг-то был сделан...</p>
+    </template>
+
+    <template id="page_1034-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1034-01" data-photo-title="Дождь учебе не помеха" data-photo-place="Владивосток, ДВГУ" data-photo-year="1 Сентября 1998"></span>
+      </div>
+      <h2 class="publisher-title">Дождь учебе не помеха</h2>
+    </template>
+
+    <template id="page_1035-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1035-01" data-photo-title="Студенческое «крещение»" data-photo-place="Владивосток, ДВГУ" data-photo-year="1998"></span>
+      </div>
+      <h2 class="publisher-title">Студенческое «крещение»</h2>
+      <p class="article-paragraph">Ректор ДВГУ Владимир Иванович Курилов</p>
+      <!-- Историческая справка: текст и ссылки для вычитки и редактирования. -->
+      <details class="historical-note">
+        <summary class="historical-note__toggle" aria-label="Историческая справка" title="Историческая справка">
+          <span class="historical-note__icon" aria-hidden="true">i</span>
+        </summary>
+        <div class="historical-note__body">
+          <section class="historical-note__person">
+            <h3>Владимир Иванович Курилов</h3>
+            <p>Юрист, учёный и преподаватель. Ректор Дальневосточного государственного университета в 1990–2010 годах.</p>
+            <p class="historical-note__source">Источник: <a href="https://ru.wikipedia.org/wiki/Курилов,_Владимир_Иванович" target="_blank" rel="noopener noreferrer">Википедия</a></p>
+          </section>
+        </div>
+      </details>
+    </template>
+
+    <template id="page_1036-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1036-01" data-photo-title="Студенческому роду во Владивостоке нет переводу" data-photo-place="Владивосток, ДВГУ" data-photo-year="2001"></span>
+        <span data-photo-id="p1036-02" data-photo-title="Студенческому роду во Владивостоке нет переводу" data-photo-place="Владивосток, ДВГУ" data-photo-year="2001"></span>
+      </div>
+      <h2 class="publisher-title">Студенческому роду во Владивостоке нет переводу</h2>
+    </template>
+
+    <template id="page_1037-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1037-01" data-photo-title="Морозный денек в японском обрамлении" data-photo-place="Владивосток, ДВГУ" data-photo-year="1997"></span>
+      </div>
+      <h2 class="publisher-title">Морозный денек в японском обрамлении</h2>
+    </template>
+
+    <template id="page_1039-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1039-01" data-photo-title="Олень-цветок" data-photo-place="Уссурийский район" data-photo-year="1996"></span>
+      </div>
+      <h2 class="publisher-title">Олень-цветок</h2>
+      <p class="article-paragraph">Олень-цветок — подлинное украшение Сихотэ-Алиньских отрогов.</p>
+    </template>
+
+    <template id="page_1041-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1041-01" data-photo-title="Торжественное шествие в День Победы" data-photo-place="Владивосток" data-photo-year="2004"></span>
+      </div>
+      <h2 class="publisher-title">Чтобы помнили</h2>
+      <p class="article-paragraph">Торжественное шествие в День Победы</p>
+    </template>
+
+    <template id="page_1042-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1042-01" data-photo-title="Полонез — финал" data-photo-place="Уссурийская детская музыкальная школа" data-photo-year="1996"></span>
+      </div>
+      <h2 class="publisher-title">Полонез</h2>
+      <p class="article-paragraph">Финал.</p>
+    </template>
+
+    <template id="page_1043-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1043-01" data-photo-title="Студенческое братство" data-photo-place="Владивосток, ДВГУ" data-photo-year="1997"></span>
+      </div>
+      <h2 class="publisher-title">Студенческое братство</h2>
+    </template>
+
+    <template id="page_1044-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1044-01" data-photo-title="" data-photo-place="" data-photo-year="2001"></span>
+      </div>
+      <h2 class="publisher-title">Девиз автора</h2>
+      <blockquote class="author-motto">
+        <p>«Никогда не хвали себя взахлеб за успехи, не ругай последними словами за промахи. Все придет само собой».</p>
+        <cite>Игорь Гусев</cite>
+      </blockquote>
+      <p class="article-paragraph"><strong>На фото:</strong> с внуком Дмитрием.<br>Снимок Александра Гузенко</p>
+      <!-- Историческая справка: текст и ссылки для вычитки и редактирования. -->
+      <details class="historical-note">
+        <summary class="historical-note__toggle" aria-label="Историческая справка" title="Историческая справка">
+          <span class="historical-note__icon" aria-hidden="true">i</span>
+        </summary>
+        <div class="historical-note__body">
+          <section class="historical-note__person">
+            <h3>Игорь Семёнович Гусев</h3>
+            <p>Приморский фотограф. Автор фотоальбома «Прощай и здравствуй», изданного во Владивостоке издательством «Дальпресс» в 2006 году.</p>
+            <p class="historical-note__source">Источник: <a href="https://nakhodka-lib.ru/известные-и-знаменитые-писатели-в-нах/" target="_blank" rel="noopener noreferrer">Библиотеки Находки</a></p>
+          </section>
+        </div>
+      </details>
+    </template>
+
+    <template id="page_1045-text">
+      <!-- Подпись: title — в увеличенном просмотре; place и year — под фотографией. -->
+      <div class="page-photo-meta" hidden aria-hidden="true">
+        <span data-photo-id="p1045-01" data-photo-title="Выходные данные" data-photo-place="" data-photo-year="2006"></span>
+      </div>
+      <h2 class="publisher-title" data-menu-title="Выходные данные">Гусев Игорь Семенович</h2>
+      <p class="article-paragraph">“ПРOЩАЙ И ЗДРАВСТВУЙ". Фотоальбом. - Владивосток: издательство ”Дальпресс”, 2006</p>
+      <p class="article-paragraph article-paragraph--no-indent">Редактор-составитель, макет <strong>Александр Каракуян</strong></p>
+      <p class="article-paragraph article-paragraph--no-indent">Верстка, компьютерная обработка иллюстраций <strong>Гузель Жданова</strong></p>
+      <p class="article-paragraph article-paragraph--no-indent">Дизайн обложки <strong>Татьяна Петерсон</strong></p>
+      <p class="article-paragraph article-paragraph--no-indent">Корректор <strong>Римма Павлова</strong></p>
+      <p class="article-paragraph article-paragraph--no-indent">Обработка изображений и верстка сайта <strong><a class="credit-link" href="https://flexboxer.com" target="_blank" rel="noopener noreferrer">flexboxer</a></strong></p>
+    </template>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
