@@ -384,7 +384,7 @@ h1 { margin: 0; font-size: clamp(2.5rem, 18cqi, 7.6rem); font-weight: 400; lette
   .start-button { gap: 38px; }
   .chapter-view { padding-top: 60px; }
   .book-page__visual { min-height: auto; padding: 18px; }
-  .feature-photo { height: auto; min-height: 58vh; max-height: none; grid-template-rows: minmax(0, 58vh) auto; }
+  .feature-photo { height: auto; min-height: 46vh; max-height: none; grid-template-rows: minmax(0, 46vh) auto; }
   .collage-board { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px 12px; min-height: 0; padding: 42px 14px 28px; }
   .collage-photo, .collage-photo:nth-child(n) { position: relative; inset: auto; width: 100%; padding: 7px 7px 22px; }
   .collage-photo img { height: auto; max-height: 230px; }
