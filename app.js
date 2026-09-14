@@ -1,3 +1,5 @@
+// 1. Album data and imported interface modules.
+// 1. Данные и подключаемые части интерфейса.
 import { project, pages } from './data/site-data.js';
 import { renderChapterNavigation, updateChapterNavigation } from './components/navigation.js';
 import { createLightbox } from './components/lightbox.js';
@@ -5,6 +7,8 @@ import { createIntroSlideshow } from './components/intro-slideshow.js';
 import { formatMenuTitle } from './components/menu-titles.js';
 import { createLensNavigation } from './components/lens-navigation.js';
 
+// 2. Persistent page elements and shared state.
+// 2. Постоянные элементы страницы и общее состояние.
 const intro = document.querySelector('#intro');
 const introSlideshow = createIntroSlideshow(intro, pages);
 const pageView = document.querySelector('#chapter-view');
@@ -17,20 +21,8 @@ const lightboxRoot = document.querySelector('#lightbox');
 const lightbox = createLightbox(lightboxRoot);
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-const duplicatePageRedirects = {
-  "page_0933": "page_0931",
-  "page_0944": "page_0943",
-  "page_0948": "page_0947",
-  "page_0950": "page_0947",
-  "page_0961": "page_0963",
-  "page_0964": "page_0966",
-  "page_0970": "page_0971",
-  "page_0973": "page_0974",
-  "page_1011": "page_1010",
-  "page_1033": "page_1032",
-  "page_1038": "page_1036",
-  "page_1040": "page_1039"
-};
+// 3. Preparing data for the menu and intro screen.
+// 3. Подготовка данных для меню и заставки.
 pages.forEach((page, index) => {
   page.number = String(index + 1).padStart(2, '0');
   const template = document.querySelector(`#${page.id}-text`);
@@ -47,6 +39,8 @@ const lensNavigation = createLensNavigation(pages, (id) => {
   openPage(id);
 }, () => setExpanded(menuToggle, menu, true));
 
+// 4. Helper functions for page data and photo captions.
+// 4. Вспомогательные функции для данных страниц и подписей фотографий.
 function getChapterName(page) {
   const sourcePage = Number(page.sourcePage);
   if (sourcePage === 929) return 'От издательства';
@@ -76,58 +70,22 @@ function getPhotoOverrides(page) {
   return overrides;
 }
 
-function splitCaption(caption) {
-  return caption
-    .split(/(?<=[.!?…])\s+/u)
-    .filter(Boolean)
-    .reduce((parts, part) => {
-      const previousPart = parts.at(-1) || '';
-      if (/(?:^|\s)(?:г|с|п|р|д|ст|им)\.$/iu.test(previousPart)) {
-        parts[parts.length - 1] = `${previousPart} ${part}`;
-      } else {
-        parts.push(part);
-      }
-      return parts;
-    }, []);
-}
-
 function getPhotoDisplay(asset, overrides) {
-  const customLocations = {
-    '0931': 'Находка',
-    '0932': 'Сахалин',
-    '0935': 'с. Золотая Долина',
-    '0936': 'Сахалин. с. Троицкое',
-    '0938': 'Сахалин. г. Долинск',
-    '0941': 'Приморье, Михайловский район. с. Осиновка'
-  };
-  const customTitles = {
-    '0936': 'Подпасок.',
-    '0937': 'Все начиналось с неуменья.',
-    '0938': 'Городские школяры.',
-    '0941': 'У околицы родного села.'
-  };
-  const caption = (asset.caption || '').trim();
-  const parts = splitCaption(caption);
-  const lastPart = parts.at(-1)?.replace(/[.!?…]+$/u, '').trim() || '';
-  const locationPattern = /(?:Приморье|Сахалин|Владивосток|Находка|Южно-Сахалинск|Долинск|Невельск|Дальнереченск|Дальнегорск|Спасск|Екатериновка|Осиновка|Троицкое|Владимиро-Александровское|Золотая Долина|Рында|Джигит|Анучинский|Михайловский|Хорольский|леспромхоз|НСРЗ|Дальзавод|ПСРЗ|район|залив|бухта|г\.|с\.)/iu;
-  const fallbackLocation = customLocations[asset.sourcePage]
-    ?? (parts.length > 1 && locationPattern.test(lastPart) ? lastPart : '');
-  const fallbackTitle = customTitles[asset.sourcePage] ?? (fallbackLocation && parts.length > 1
-    ? parts.slice(0, -1).join(' ').trim()
-    : caption);
-  const override = overrides.get(asset.id);
-  const location = override ? override.place : fallbackLocation;
-  const title = override ? override.title : fallbackTitle;
-  const date = override ? override.year : asset.date;
+  const display = overrides.get(asset.id) ?? asset.display ?? {};
+  const title = display.title ?? asset.caption ?? asset.alt;
+  const location = display.place ?? '';
+  const date = display.year ?? asset.date;
   return {
     ...asset,
-    displayTitle: override ? title : (title || asset.alt || caption),
+    displayTitle: title || asset.alt || asset.caption,
     displayMeta: [location, date].filter(Boolean).join(', ')
   };
 }
 
 document.querySelector('#project-intro').textContent = project.intro;
 
+// 5. Opening panels and switching the theme.
+// 5. Открытие панелей и переключение темы.
 function setExpanded(button, panel, expanded) {
   button.setAttribute('aria-expanded', String(expanded));
   panel.hidden = !expanded;
@@ -154,10 +112,13 @@ function setDarkTheme(enabled) {
   try {
     localStorage.setItem('hello-again-theme', enabled ? 'dark' : 'light');
   } catch {
-    // The reader still works when storage is unavailable.
   }
 }
 
+// 6. Building the visual page content: photos, text, and bottom navigation.
+// 6. Создание визуальной части страницы: фотографии, текст и нижняя навигация.
+// Photos are buttons to support keyboard access and opening the lightbox.
+// Фотографии — это button для доступа с клавиатуры и открытия лайтбокса.
 function makePhotoButton(asset, index, variant, pageAssets) {
   const button = document.createElement('button');
   button.type = 'button';
@@ -190,13 +151,11 @@ function renderVisual(page) {
   if (page.layout === 'collage') {
     const board = document.createElement('div');
     board.className = 'collage-board';
-    if (['page_0929', 'page_0930'].includes(page.id)) board.classList.add('collage-board--untitled');
-    if (page.id === 'page_0930') board.classList.add('collage-board--seven');
-    if (page.id === 'page_0958') board.classList.add('collage-board--feature-pair');
-    if (['page_0978', 'page_1013'].includes(page.id)) board.classList.add('collage-board--feature-pair', 'collage-board--feature-pair--portrait-right');
-    if (page.id === 'page_0972') board.classList.add('collage-board--feature-pair', 'collage-board--feature-pair--reverse');
-    if (page.id === 'page_1036') board.classList.add('collage-board--feature-pair', 'collage-board--feature-pair--twin-portrait');
-    const rotations = ['page_0929', 'page_0930', 'page_0958', 'page_0972', 'page_0978', 'page_1013', 'page_1036'].includes(page.id)
+    const { collageClassNames = [], subtleCollage = false } = page.visual ?? {};
+    board.classList.add(...collageClassNames);
+    // The tilts and offsets below are decorative collage effects; photo files remain unchanged.
+    // Наклоны и сдвиги ниже — только декоративный эффект коллажа, не изменение файлов фото.
+    const rotations = subtleCollage
       ? ['-1.15deg', '.85deg', '-.5deg', '1.35deg', '-.85deg', '.55deg', '-1deg']
       : ['-2.5deg', '1.8deg', '-1deg', '2.7deg', '-1.7deg', '1.1deg', '-2deg'];
     const hoverOffsets = [
@@ -221,7 +180,7 @@ function renderVisual(page) {
     visual.append(board);
   } else if (page.assets.length) {
     const photo = makePhotoButton(displayAssets[0], 0, 'feature-photo', displayAssets);
-    if (page.id === 'page_1032') photo.classList.add('feature-photo--color-to-bw');
+    photo.classList.add(...(page.visual?.featureClassNames ?? []));
     visual.append(photo);
   } else {
     const empty = document.createElement('p');
@@ -258,6 +217,8 @@ function scrollBehavior() {
   return prefersReducedMotion.matches ? 'auto' : 'smooth';
 }
 
+// 7. Switching between the intro screen and album pages.
+// 7. Переключение между заставкой и страницами альбома.
 function renderPage(id, updateUrl = true) {
   const index = pages.findIndex((page) => page.id === id);
   if (index < 0) return;
@@ -303,6 +264,8 @@ function showIntro({ updateUrl = true } = {}) {
   window.scrollTo({ top: 0, behavior: scrollBehavior() });
 }
 
+// 8. Click and keyboard event handlers.
+// 8. Обработчики кликов и клавиатуры.
 document.querySelector('#start-reading').addEventListener('click', () => openPage(activePageId));
 document.querySelector('.wordmark').addEventListener('click', (event) => {
   event.preventDefault();
@@ -344,10 +307,10 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
+// 9. Application startup and URL synchronization.
+// 9. Запуск приложения и синхронизация с адресной строкой.
 function resolveHashPage() {
-  const requestedPageId = window.location.hash.slice(1);
-  const pageId = duplicatePageRedirects[requestedPageId] ?? requestedPageId;
-  return pages.find((page) => page.id === pageId);
+  return pages.find((page) => page.id === window.location.hash.slice(1));
 }
 
 try {

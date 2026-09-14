@@ -8,7 +8,7 @@
     <title>Прощай и здравствуй</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=PT+Sans:wght@400;700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -86,7 +86,7 @@
                 <p class="intro__subtitle">По книге Игоря Гусева</p>
                 <p class="intro__text" id="project-intro"></p>
               </div>
-              <button class="start-button" id="start-reading" type="button">Смотреть <span aria-hidden="true">↗</span></button>
+              <button class="start-button" id="start-reading" type="button">Смотреть <span class="start-button__arrow" aria-hidden="true"></span></button>
             </div>
           </div>
         </section>
@@ -98,13 +98,17 @@
     <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр фотографии" hidden>
       <div class="lightbox__backdrop" data-close-lightbox></div>
       <div class="lightbox__dialog" role="document">
-        <button class="icon-button lightbox__close" type="button" data-close-lightbox aria-label="Закрыть просмотр">×</button>
-        <button class="lightbox__arrow lightbox__arrow--previous" type="button" data-lightbox-previous aria-label="Предыдущая фотография">←</button>
         <figure class="lightbox__figure">
-          <img id="lightbox-image" alt="" />
+          <div class="lightbox__image-frame">
+            <div class="lightbox__image-stage">
+              <img id="lightbox-image" alt="" />
+              <button class="lightbox__close" type="button" data-close-lightbox aria-label="Закрыть просмотр"></button>
+              <button class="lightbox__arrow lightbox__arrow--previous" type="button" data-lightbox-previous aria-label="Предыдущая фотография"></button>
+              <button class="lightbox__arrow lightbox__arrow--next" type="button" data-lightbox-next aria-label="Следующая фотография"></button>
+            </div>
+          </div>
           <figcaption id="lightbox-caption"></figcaption>
         </figure>
-        <button class="lightbox__arrow lightbox__arrow--next" type="button" data-lightbox-next aria-label="Следующая фотография">→</button>
       </div>
     </div>
 
@@ -400,7 +404,8 @@
       <div class="page-photo-meta" hidden aria-hidden="true">
         <span data-photo-id="p0974-01" data-photo-title="Строители Дальневосточного шахтостроительного управления Н. П. Федореев и В. В. Приходько возводят подземный рудник на месторождении «Восток-2»" data-photo-place="Приморье, Дальнегорск" data-photo-year="1984"></span>
       </div>
-      <h2 class="publisher-title" data-menu-title="Строители Дальневосточного шахтостроительного управления…">Строители Дальневосточного шахтостроительного управления Н. П. Федореев и В. В. Приходько возводят подземный рудник на месторождении "Восток-2"</h2>
+      <h2 class="publisher-title" data-menu-title="Строители Дальневосточного шахтостроительного управления…">Строители Дальневосточного шахтостроительного управления</h2>
+      <p>Н. П. Федореев и В. В. Приходько возводят подземный рудник на месторождении "Восток-2"</p>
     </template>
 
     <template id="page_0975-text">
@@ -611,7 +616,8 @@
       <div class="page-photo-meta" hidden aria-hidden="true">
         <span data-photo-id="p0990-01" data-photo-title="Накануне «Красной субботы» Уссурийское локомотивное депо ”оккупировали” журналисты из края" data-photo-place="" data-photo-year="Апрель 1975"></span>
       </div>
-      <h2 class="publisher-title" data-menu-title="Накануне «красной субботы»">Накануне ”Красной субботы” Уссурийское локомотивное депо ”оккупировали” журналисты из края</h2>
+      <h2 class="publisher-title" data-menu-title="Накануне «красной субботы»">Накануне ”Красной субботы”</h2>
+      <p> Уссурийское локомотивное депо ”оккупировали” журналисты из края</p>
     </template>
 
     <template id="page_0991-text">
@@ -942,7 +948,7 @@
       <div class="page-photo-meta" hidden aria-hidden="true">
         <span data-photo-id="p1020-01" data-photo-title="Федор Конюхов — мировая известность" data-photo-place="Владивосток" data-photo-year="1990"></span>
       </div>
-      <h2 class="publisher-title" data-menu-title="Федор Конюхов — мировая известность">У известного приморского путешественника Федора Конюхова - мировая известность.</h2>
+      <h2 class="publisher-title" data-menu-title="Федор Конюхов — мировая известность">У известного приморского путешественника Федора Конюхова</h2>
       <!-- Историческая справка: текст и ссылки для вычитки и редактирования. -->
       <details class="historical-note">
         <summary class="historical-note__toggle" aria-label="Историческая справка" title="Историческая справка">
@@ -989,7 +995,8 @@
       <div class="page-photo-meta" hidden aria-hidden="true">
         <span data-photo-id="p1024-01" data-photo-title="Полные кавалеры орденов Славы и &laquo;Трудовой славы&raquo;&colon; строитель Василий Афанасьевич Осипенко и судоремонтник Дмитрий Никифорович Бондаренко" data-photo-place="Владивосток" data-photo-year="1982"></span>
       </div>
-      <h2 class="publisher-title" data-menu-title="Полные кавалеры орденов Славы и Трудовой славы">Полные кавалеры орденов Славы и "Трудовой славы": строитель Василий Афанасьевич Осипенко и судоремонтник Дмитрий Никифорович Бондаренко</h2>
+      <h2 class="publisher-title" data-menu-title="Полные кавалеры орденов Славы и Трудовой славы">Полные кавалеры орденов Славы и "Трудовой славы"</h2>
+      <p>Cтроитель Василий Афанасьевич Осипенко и судоремонтник Дмитрий Никифорович Бондаренко</p>
       <!-- Историческая справка: текст и ссылки для вычитки и редактирования. -->
       <details class="historical-note">
         <summary class="historical-note__toggle" aria-label="Историческая справка" title="Историческая справка">

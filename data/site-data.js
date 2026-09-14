@@ -10,6 +10,7 @@ export const pages = [
     "sourcePage": "0929",
     "title": "От издательства",
     "layout": "collage",
+    "visual": { "collageClassNames": ["collage-board--untitled"], "subtleCollage": true },
     "assets": [
       {
         "id": "p0929-01",
@@ -78,6 +79,7 @@ export const pages = [
     "sourcePage": "0930",
     "title": "В каждом кадре - жизнь",
     "layout": "collage",
+    "visual": { "collageClassNames": ["collage-board--untitled", "collage-board--seven"], "subtleCollage": true },
     "assets": [
       {
         "id": "p0930-01",
@@ -162,6 +164,7 @@ export const pages = [
         "image": "./assets/photos/p0932_photo_01.webp",
         "caption": "Караси из Стародубска.",
         "date": "1962",
+        "display": { "title": "Караси из Стародубска.", "place": "Сахалин" },
         "sourcePage": "0932",
         "width": 674,
         "height": 547,
@@ -180,6 +183,7 @@ export const pages = [
         "image": "./assets/photos/p0933_photo_01.webp",
         "caption": "Павлик — сын моего хорошего приятеля.",
         "date": "1977",
+        "display": { "title": "Павлик — сын моего хорошего приятеля.", "place": "Находка" },
         "sourcePage": "0931",
         "width": 646,
         "height": 716,
@@ -198,6 +202,7 @@ export const pages = [
         "image": "./assets/photos/p0934_photo_01.webp",
         "caption": "За форелью на Падун. Находка — Владимиро-Александровское.",
         "date": "1966",
+        "display": { "title": "За форелью на Падун.", "place": "Находка — Владимиро-Александровское" },
         "sourcePage": "0934",
         "width": 1123,
         "height": 811,
@@ -216,6 +221,7 @@ export const pages = [
         "image": "./assets/photos/p0935_photo_01.webp",
         "caption": "С вертолетом в догонялки. Приморье, с. Золотая Долина.",
         "date": "1963",
+        "display": { "title": "С вертолетом в догонялки.", "place": "с. Золотая Долина" },
         "sourcePage": "0935",
         "width": 863,
         "height": 811,
@@ -234,6 +240,7 @@ export const pages = [
         "image": "./assets/photos/p0936_photo_01.webp",
         "caption": "Подпасок. Сахалин, с. Троицкое.",
         "date": "1958",
+        "display": { "title": "Подпасок.", "place": "Сахалин. с. Троицкое" },
         "sourcePage": "0936",
         "width": 1197,
         "height": 809,
@@ -252,6 +259,7 @@ export const pages = [
         "image": "./assets/photos/p0937_photo_01.webp",
         "caption": "Все начиналось с неуменья. Учительница начальных классов Мария Николаевна Павленко. Владивосток, СШ № 28.",
         "date": "1975",
+        "display": { "title": "Все начиналось с неуменья.", "place": "Владивосток, СШ № 28" },
         "sourcePage": "0937",
         "width": 698,
         "height": 860,
@@ -270,6 +278,7 @@ export const pages = [
         "image": "./assets/photos/p0938_photo_01.webp",
         "caption": "Городские школяры. Сахалин, г. Долинск.",
         "date": "1962",
+        "display": { "title": "Городские школяры.", "place": "Сахалин. г. Долинск" },
         "sourcePage": "0938",
         "width": 1001,
         "height": 1115,
@@ -288,6 +297,7 @@ export const pages = [
         "image": "./assets/photos/p0939_photo_01.webp",
         "caption": "Триумф и огорчение. Находка.",
         "date": "1974",
+        "display": { "title": "Триумф и огорчение.", "place": "Находка" },
         "sourcePage": "0939",
         "width": 845,
         "height": 807,
@@ -306,6 +316,7 @@ export const pages = [
         "image": "./assets/photos/p0940_photo_01.webp",
         "caption": "Рыжик из Золотой Долины. Приморье.",
         "date": "1964",
+        "display": { "title": "Рыжик из Золотой Долины.", "place": "Приморье" },
         "sourcePage": "0940",
         "width": 701,
         "height": 864,
@@ -324,6 +335,7 @@ export const pages = [
         "image": "./assets/photos/p0941_photo_01.webp",
         "caption": "У околицы родного села. Приморье, Михайловский район, с. Осиновка.",
         "date": "1986",
+        "display": { "title": "У околицы родного села.", "place": "Приморье, Михайловский район. с. Осиновка" },
         "sourcePage": "0941",
         "width": 917,
         "height": 866,
@@ -342,6 +354,7 @@ export const pages = [
         "image": "./assets/photos/p0942_photo_01.webp",
         "caption": "Постижение пространства. Владивосток.",
         "date": "1974",
+        "display": { "title": "Постижение пространства.", "place": "Владивосток" },
         "sourcePage": "0942",
         "width": 1193,
         "height": 690,
@@ -360,6 +373,7 @@ export const pages = [
         "image": "./assets/photos/p0943_photo_01.webp",
         "caption": "Настрой на минор. Владивосток, Музыкальная школа № 4.",
         "date": "1973",
+        "display": { "title": "Настрой на минор.", "place": "Владивосток, Музыкальная школа № 4" },
         "sourcePage": "0943",
         "width": 748,
         "height": 948,
@@ -570,6 +584,7 @@ export const pages = [
     "sourcePage": "0958",
     "title": "Застава Графская — рубеж России.",
     "layout": "collage",
+    "visual": { "collageClassNames": ["collage-board--feature-pair"], "subtleCollage": true },
     "assets": [
       {
         "id": "p0958-01",
@@ -778,6 +793,7 @@ export const pages = [
     "sourcePage": "0972",
     "title": "Когда не гремят якорь-цепи.",
     "layout": "collage",
+    "visual": { "collageClassNames": ["collage-board--feature-pair", "collage-board--feature-pair--reverse"], "subtleCollage": true },
     "assets": [
       {
         "id": "p0972-01",
@@ -878,6 +894,7 @@ export const pages = [
     "sourcePage": "0978",
     "title": "Океанские подарочки.",
     "layout": "collage",
+    "visual": { "collageClassNames": ["collage-board--feature-pair", "collage-board--feature-pair--portrait-right"], "subtleCollage": true },
     "assets": [
       {
         "id": "p0978-01",
@@ -1500,6 +1517,7 @@ export const pages = [
     "sourcePage": "1013",
     "title": "Курильские аборигены.",
     "layout": "collage",
+    "visual": { "collageClassNames": ["collage-board--feature-pair", "collage-board--feature-pair--portrait-right"], "subtleCollage": true },
     "assets": [
       {
         "id": "p1013-02",
@@ -1852,6 +1870,7 @@ export const pages = [
     "sourcePage": "1032",
     "title": "Победная плясовая.",
     "layout": "landscape-right",
+    "visual": { "featureClassNames": ["feature-photo--color-to-bw"] },
     "assets": [
       {
         "id": "p1032-01",
@@ -1906,6 +1925,7 @@ export const pages = [
     "sourcePage": "1036",
     "title": "Студенческому роду во Владивостоке нет переводу.",
     "layout": "collage",
+    "visual": { "collageClassNames": ["collage-board--feature-pair", "collage-board--feature-pair--twin-portrait"], "subtleCollage": true },
     "assets": [
       {
         "id": "p1036-01",
